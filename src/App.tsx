@@ -9,11 +9,16 @@ const App = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const { data, isLoading } = useSearchPosts(searchQuery);
   return (
-    <main>
-      <section className="p-2 bg-gray-200 dark:bg-gray-800">
-        <SearchInput onChange={setSearchQuery} />
+    <main className="">
+      <section className="p-2 bg-gray-200 dark:bg-gray-800 md:sticky md:inset-x-0 md:top-0">
+        <SearchInput
+          className="md:max-w-2xl md:mx-auto"
+          onChange={setSearchQuery}
+        />
       </section>
-      <PostsList postSearchResult={data} isLoading={isLoading} />
+      <section className="md:max-w-2xl md:mx-auto">
+        <PostsList postSearchResult={data} isLoading={isLoading} />
+      </section>
     </main>
   );
 };

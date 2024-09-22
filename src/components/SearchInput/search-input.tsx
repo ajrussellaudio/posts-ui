@@ -17,11 +17,14 @@ function Icon() {
 
 type SearchInputProps = {
   onChange: (query: string) => void;
+  className?: string;
 };
 
-export function SearchInput({ onChange }: SearchInputProps) {
+export function SearchInput({ onChange, className = "" }: SearchInputProps) {
   return (
-    <label className="input input-bordered flex items-center gap-2">
+    <label
+      className={`input input-bordered flex items-center gap-2 ${className}`}
+    >
       <input
         type="text"
         className="grow"
