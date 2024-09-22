@@ -1,12 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 
-type Post = {
-  id: number;
-  userId: number;
-  title: string;
-  body: string;
-};
-
 export function usePosts() {
   return useQuery<Post[]>({
     queryKey: ["posts"],

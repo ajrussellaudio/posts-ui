@@ -1,11 +1,15 @@
 import "@fontsource-variable/inter";
 import "./App.css";
+import { PostsList } from "./components/Posts";
+import { usePosts } from "./hooks/usePosts";
 
 const App = () => {
+  const { data: posts, isLoading } = usePosts();
   return (
-    <div>
+    <main>
       <h1 className="text-3xl font-bold underline">Hello Twinkl!</h1>
-    </div>
+      <PostsList posts={posts} isLoading={isLoading} />
+    </main>
   );
 };
 
