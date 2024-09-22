@@ -7,13 +7,13 @@ import { useState } from "react";
 
 const App = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const { data: posts, isLoading } = useSearchPosts(searchQuery);
+  const { data, isLoading } = useSearchPosts(searchQuery);
   return (
     <main>
       <section className="p-2 bg-gray-200 dark:bg-gray-800">
         <SearchInput onChange={setSearchQuery} />
       </section>
-      <PostsList posts={posts} isLoading={isLoading} />
+      <PostsList postSearchResult={data} isLoading={isLoading} />
     </main>
   );
 };
