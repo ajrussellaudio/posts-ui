@@ -6,9 +6,11 @@ export function createWrapper() {
     defaultOptions: { queries: { retry: false } },
   });
 
-  return ({ children }: PropsWithChildren) => {
+  function TestClientWrapper({ children }: PropsWithChildren) {
     return (
       <QueryClientProvider client={client}>{children}</QueryClientProvider>
     );
-  };
+  }
+
+  return TestClientWrapper;
 }
