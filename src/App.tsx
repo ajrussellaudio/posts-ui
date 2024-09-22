@@ -1,13 +1,18 @@
 import "@fontsource-variable/inter";
 import "./App.css";
 import { PostsList } from "./components/Posts";
-import { usePosts } from "./hooks/usePosts";
+import { SearchInput } from "./components/SearchInput";
+import { useSearchPosts } from "./hooks/useSearchPosts";
+import { useState } from "react";
 
 const App = () => {
-  const { data: posts, isLoading } = usePosts();
+  const [searchQuery, setSearchQuery] = useState("");
+  const { data: posts, isLoading } = useSearchPosts(searchQuery);
   return (
     <main>
-      <h1 className="text-3xl font-bold underline">Hello Twinkl!</h1>
+      <section className="p-2 bg-gray-200 dark:bg-gray-800">
+        <SearchInput onChange={setSearchQuery} />
+      </section>
       <PostsList posts={posts} isLoading={isLoading} />
     </main>
   );

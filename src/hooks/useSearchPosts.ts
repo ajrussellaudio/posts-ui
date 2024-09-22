@@ -11,7 +11,7 @@ export function useSearchPosts(query: string) {
       const fzf = new Fzf(posts.data!, {
         selector: (post) => post.title,
       });
-      return fzf.find(query);
+      return fzf.find(query).map(({ item }) => item);
     },
     enabled: !!posts.data,
   });
