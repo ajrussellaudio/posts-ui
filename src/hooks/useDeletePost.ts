@@ -13,7 +13,6 @@ export function useDeletePost(postId: number, options: MutateOptions) {
       if (!response.ok) {
         throw new Error(`Failed to delete post #${postId}`);
       }
-      console.log({ res: await response.json() });
       return response.json();
     },
     ...options,

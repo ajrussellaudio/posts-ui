@@ -1,5 +1,6 @@
 import { FzfResultItem } from "fzf";
 import { HighlightedTitle } from "./highlighted-title";
+import { DeleteButton } from "./delete-button";
 
 type ListProps = {
   postSearchResult?: FzfResultItem<Post>[];
@@ -31,7 +32,7 @@ export function List({ postSearchResult, isLoading }: ListProps) {
             </div>
           </div>
           <div className="shrink-0 sm:flex sm:flex-col sm:items-end">
-            <button className="btn btn-warning">Delete</button>
+            <DeleteButton postId={post.item.id} />
           </div>
         </li>
       ))}
