@@ -9,7 +9,21 @@ type ListProps = {
 
 export function List({ postSearchResult, isLoading }: ListProps) {
   if (isLoading || !postSearchResult) {
-    return "Loading...";
+    return (
+      <ul role="list" className="divide-y divide-gray-100">
+        {Array.from({ length: 40 }).map((_, i) => (
+          <li key={i} className="flex justify-between items-center gap-x-6 p-5">
+            <div className="flex flex-col min-w-0 gap-4">
+              <div className="skeleton h-5 w-96"></div>
+              <div className="skeleton h-5 w-96"></div>
+            </div>
+            <div className="shrink-0 sm:flex sm:flex-col sm:items-end">
+              <div className="skeleton h-12 w-20"></div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    );
   }
 
   return (
